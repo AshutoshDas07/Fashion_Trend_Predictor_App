@@ -1,0 +1,1 @@
+# Fashion_Trend_Predictor_App
