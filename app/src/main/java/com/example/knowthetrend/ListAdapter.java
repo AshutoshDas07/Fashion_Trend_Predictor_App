@@ -1,6 +1,7 @@
 package com.example.knowthetrend;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,10 +47,18 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
         ImageView imageView;
         TextView textView;
 
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull final View itemView) {
             super(itemView);
             imageView=itemView.findViewById(R.id.fashiontype_pic);
             textView=itemView.findViewById(R.id.fashiontype);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent=new Intent(context,ChartListActivity.class);
+                    intent.putExtra("POS",getAdapterPosition());
+                    itemView.getContext().startActivity(intent);
+                }
+            });
         }
     }
 }

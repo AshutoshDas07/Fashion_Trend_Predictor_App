@@ -7,12 +7,12 @@
         -->
         <item
             android:id="@+id/first"
-            android:title="First Menu" />
+            android:title="Men Fashion" />
         <item
             android:id="@+id/second"
-            android:title="Second Menu" />
+            android:title="Women Fashion" />
         <item
             android:id="@+id/third"
-            android:title="Third Menu" />
+            android:title="Top 10 Trending" />
     </group>
 </menu>

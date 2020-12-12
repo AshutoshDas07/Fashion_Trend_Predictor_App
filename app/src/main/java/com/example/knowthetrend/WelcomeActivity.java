@@ -26,7 +26,7 @@ public class WelcomeActivity extends AppCompatActivity {
     private LinearLayout dotsLayout;
     private TextView[] dots;
     private int[] layouts;
-    private Button btnSkip, btnNext;
+    private Button btnSkip, btnNext,btnMen,btnWomen,btnTTT;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,6 +39,9 @@ public class WelcomeActivity extends AppCompatActivity {
         dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
         btnSkip = (Button) findViewById(R.id.btn_skip);
         btnNext = (Button) findViewById(R.id.btn_next);
+        btnMen=findViewById(R.id.Men_Predict);
+        btnWomen=findViewById(R.id.Women_predict);
+        btnTTT=findViewById(R.id.TTT_predict);
         layouts = new int[]{
                 R.layout.welcome_slide2,
                 R.layout.welcome_slide3,
@@ -151,11 +154,56 @@ public class WelcomeActivity extends AppCompatActivity {
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
+            View view = null;
             layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-            View view = layoutInflater.inflate(layouts[position], container, false);
-            container.addView(view);
+           // view = layoutInflater.inflate(layouts[position], container, false);
+            //container.addView(view);
 
+            int resId=0;
+            switch (position) {
+                case 0:
+                    resId = layouts[position];
+                    view = layoutInflater.inflate(resId, container, false);
+                    btnMen = (Button) view.findViewById(R.id.Men_Predict);
+                    btnMen.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent i=new Intent(WelcomeActivity.this, LoadingSplashScreen.class);
+                            i.putExtra("catType","Men");
+                            startActivity(i);
+                        }
+                    });
+                    break;
+                case 1:
+                    resId = layouts[position];
+                    view = layoutInflater.inflate(resId, container, false);
+                    btnWomen = (Button) view.findViewById(R.id.Women_predict);
+                    btnWomen.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent i=new Intent(WelcomeActivity.this, LoadingSplashScreen.class);
+                            i.putExtra("catType","Women");
+                            startActivity(i);
+                        }
+                    });
+                    break;
+                case 2:
+                    resId = layouts[position];
+                    view = layoutInflater.inflate(resId, container, false);
+                    btnTTT = (Button) view.findViewById(R.id.TTT_predict);
+                    btnTTT.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent i=new Intent(WelcomeActivity.this, LoadingSplashScreen.class);
+                            i.putExtra("catType","TTT");
+                            startActivity(i);
+                        }
+                    });
+                    break;
+            }
+//            ((ViewPager) collection).addView(view, 0);
+            container.addView(view);
             return view;
         }
 

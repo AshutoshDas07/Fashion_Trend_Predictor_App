@@ -22,9 +22,11 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_welcome"
-            android:theme="@style/Theme.AppCompat"></activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".LoadingSplashScreen"
             android:label="Loading Screen"></activity>
+        <activity android:name=".ChartListActivity"
+            android:label="Charts Screen"></activity>
     </application>
 
 </manifest>

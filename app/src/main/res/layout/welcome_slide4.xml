@@ -24,6 +24,14 @@
             android:textColor="@android:color/white"
             android:textSize="@dimen/slide_title"
             android:textStyle="bold" />
+        <Button
+            android:id="@+id/TTT_predict"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Predict"
+            android:layout_marginTop="15dp">
+
+        </Button>
 
     </LinearLayout>
 

@@ -21,4 +21,9 @@
     <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
     <string name="play_again">Play Again</string>
 
+    <string-array name="nav_item_activity_titles">
+        <item>Men Fashion</item>
+        <item>Women Fashion</item>
+        <item>Top 10 Trending</item>
+    </string-array>
 </resources>

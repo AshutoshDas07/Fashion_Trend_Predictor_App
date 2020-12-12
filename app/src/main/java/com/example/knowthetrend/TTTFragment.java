@@ -5,10 +5,28 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class TTTFragment extends Fragment {
+    private Toolbar toolbar;
+    private RecyclerView recyclerView;
+    private int[] images={R.drawable.menshirts1,R.drawable.mensjeans2,R.drawable.menshoes3,R.drawable.mwnethnicwear};
+    private  String[] text={"Shirts", "Pants and Jeans", "Shoes", "Ethnic Wear"};
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.ttt_fragment, container, false);
+        View view= inflater.inflate(R.layout.ttt_fragment, container, false);
+        toolbar=view.findViewById(R.id.toolbar);
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Top 10 Trending");
+
+        recyclerView=view.findViewById(R.id.tttlist);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new GridLayoutManager(view.getContext(),2));
+        recyclerView.setAdapter(new ListAdapter(view.getContext(),images,text));
+        return view;
     }
 }
