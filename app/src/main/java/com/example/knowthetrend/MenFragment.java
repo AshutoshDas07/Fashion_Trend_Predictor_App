@@ -1,5 +1,6 @@
 package com.example.knowthetrend;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,16 +19,18 @@ public class MenFragment extends Fragment {
     private RecyclerView recyclerView;
     private int[] images={R.drawable.menshirts1,R.drawable.mentshirts,R.drawable.menjackets, R.drawable.mwnethnicwear,R.drawable.menshoes3, R.drawable.mensjeans2};
     private  String[] text={"Shirts", "T shirts", "Jackets", "Ethnic Wear", "FootWear", "Jeans"};
+    Intent receivedIntent;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.men_fragment, container, false);
         toolbar=view.findViewById(R.id.toolbar);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Men Fashion");
+        receivedIntent=getActivity().getIntent();
         recyclerView=view.findViewById(R.id.menList);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(view.getContext(),2));
-        recyclerView.setAdapter(new ListAdapter(view.getContext(),images,text));
+        recyclerView.setAdapter(new ListAdapter(view.getContext(),images,text,receivedIntent));
         return view;
     }
 }

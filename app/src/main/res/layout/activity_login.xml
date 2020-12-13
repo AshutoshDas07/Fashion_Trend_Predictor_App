@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradientbackground">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Know the Trend"
+        android:textSize="40dp"
+        android:layout_marginTop="80dp"
+        android:textColor="#F8F6F6"
+        android:typeface="serif"
+        android:id="@+id/appname"
+        android:textStyle="italic"></TextView>
+
+    <ImageView
+        android:id="@+id/loginpic"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_below="@id/appname"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/loginavatar"></ImageView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/loginpic"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:ems="10"
+            android:hint="Enter phone number"
+            android:layout_gravity="center"
+            android:inputType="phone"
+            android:textAlignment="center"
+            android:textColor="#F8F6F6"
+            />
+
+        <Button
+            android:id="@+id/bt_send_otp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:text="Send Otp"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:id="@+id/bt_resend_otp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:text="Resend OTP"
+            android:layout_centerHorizontal="true" />
+
+        <EditText
+            android:id="@+id/et_otp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:ems="6"
+            android:hint="Enter verification OTP"
+            android:layout_gravity="center"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textColor="#F8F6F6" />
+
+        <Button
+            android:id="@+id/bt_verify_otp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:text="Verify OTP" />
+    </LinearLayout>
+
+
+</RelativeLayout>

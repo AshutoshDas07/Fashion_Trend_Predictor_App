@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout dLayout;
     Intent receivedintent;
     Fragment fragment;
+    int catnum;
     //Toolbar toolbar;
     private String[] activityTitles;
     @Override
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         activityTitles=new String[]{"Men Fashion","Women Fashion","Top 10 Trending"};
         fragment=null;
         receivedintent=getIntent();
-        int catnum=receivedintent.getIntExtra("catType",0);
+        catnum=receivedintent.getIntExtra("catType",0);
         setNavigationDrawer(); // call method
         if(catnum==0){
             fragment=new MenFragment();
@@ -76,6 +77,12 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }
 

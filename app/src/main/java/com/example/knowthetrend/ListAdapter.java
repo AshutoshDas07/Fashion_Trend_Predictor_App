@@ -15,11 +15,13 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
     Context context;
     private int[] images;
     private  String[] text_array;
+    Intent intent;
 
-    public ListAdapter(Context context, int[] images, String[] text_array) {
+    public ListAdapter(Context context, int[] images, String[] text_array,Intent intent) {
         this.context = context;
         this.images = images;
         this.text_array = text_array;
+        this.intent=intent;
         notifyDataSetChanged();
     }
 
@@ -47,16 +49,17 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
         ImageView imageView;
         TextView textView;
 
-        public MyViewHolder(@NonNull final View itemView) {
+        public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView=itemView.findViewById(R.id.fashiontype_pic);
             textView=itemView.findViewById(R.id.fashiontype);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent=new Intent(context,ChartListActivity.class);
-                    intent.putExtra("POS",getAdapterPosition());
-                    itemView.getContext().startActivity(intent);
+                    Intent i=new Intent(context,ChartListActivity.class);
+                    i.putExtra("POS",getAdapterPosition());
+                    i.putExtra("catType",intent.getIntExtra("catType",0));
+                    context.startActivity(i);
                 }
             });
         }
